@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Camera cam;
+    public GameObject particle;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +30,13 @@ public class Player : MonoBehaviour
                     Debug.Log(Hitinfo);
                     Debug.Log(tag);
                     //  Destroy(Hitinfo.transform.gameObject);
+                   
+
+                    //FiniteStateMachine.instance.Damage();
                     Hitinfo.transform.gameObject.SetActive(false);
+                   GameObject effect= Instantiate(particle,Hitinfo.transform.position,Quaternion.identity);
+                    
+                    Destroy(effect, 0.2f);
                     Debug.Log("Destroyed");
                 }
 

@@ -5,14 +5,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAnim : MonoBehaviour
+public class FiniteStateMachine : MonoBehaviour
 {
-    public static EnemyAnim instance;
+   
     Animator anim;
     // public GameObject player;
     public Transform target;
     NavMeshAgent agent;
-
+    public static FiniteStateMachine instance;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        return;
+    }
     public enum STATE
     {
         MOVE,
@@ -22,14 +30,7 @@ public class EnemyAnim : MonoBehaviour
     }
     public STATE state = STATE.MOVE;
     // Start is called before the first frame update
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        return;
-    }
+   
     void Start()
     {
 
@@ -89,7 +90,8 @@ public class EnemyAnim : MonoBehaviour
 
     public void Damage()
     {
-        anim.SetBool("Damage", true);
+        anim.SetBool("Attack", false);
+        anim.SetBool("Death", true);
     }
     public void Win()
     {
