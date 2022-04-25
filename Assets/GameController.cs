@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
   
     public List<GameObject> pool = new List<GameObject>();
     public List<PoolObject> poolItems = new List<PoolObject>();
-    private void Awake()
+   private void Awake()
     {
         if (instance == null)
         {
@@ -19,6 +19,8 @@ public class GameController : MonoBehaviour
         }
         return;
     }
+  
+ 
     // Start is called before the first frame update
     void Start()
     {

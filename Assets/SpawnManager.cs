@@ -15,10 +15,10 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject temp = GameController.instance.GetObjectsFromPool("Enemy");
+        GameObject temp = GameManager.instance.GetObjectsFromPool("Enemy");
         if (temp != null)
         {
-         
+            Debug.Log("true");
                 if (Random.Range(0, 100) < 1f)
                 {
 
