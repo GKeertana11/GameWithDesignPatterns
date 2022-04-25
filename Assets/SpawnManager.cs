@@ -5,15 +5,11 @@ using UnityEngine.AI;
 
 public class SpawnManager : MonoBehaviour
 {
-    //  public GameObject Enemy;
-    // public GameObject[] zombieePrefabs;
-    public int number;
-    public float spawnRadius;
-    bool spawnOnStart = true;
+   
     // Start is called before the first frame update
     void Start()
     {
-        // CreateAllEnemies();
+      
     }
 
     // Update is called once per frame
@@ -22,12 +18,7 @@ public class SpawnManager : MonoBehaviour
         GameObject temp = GameController.instance.GetObjectsFromPool("Enemy");
         if (temp != null)
         {
-          //  Vector3 randompoint = transform.position + Random.insideUnitSphere * spawnRadius;
-           // NavMeshHit hit;
-           // if (NavMesh.SamplePosition(randompoint, out hit, 10f, NavMesh.AllAreas))
-            {
-                Debug.Log("active");
-              //  Debug.Log(randompoint);
+         
                 if (Random.Range(0, 100) < 1f)
                 {
 
@@ -38,7 +29,7 @@ public class SpawnManager : MonoBehaviour
 
         }
     }
-}
+
  
     
 

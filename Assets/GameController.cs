@@ -7,13 +7,8 @@ public class GameController : MonoBehaviour
 {
     // private static ObjectPoolScript instance;
     public static GameController instance;
-    public int maxhealth = 100;
-    public int health;
-    public Text healthtext;
-    private void OnJointBreak(float breakForce)
-    {
-
-    }
+   
+  
     public List<GameObject> pool = new List<GameObject>();
     public List<PoolObject> poolItems = new List<PoolObject>();
     private void Awake()
@@ -27,7 +22,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = maxhealth;
+      
         AddToPool();
     }
 
@@ -62,39 +57,11 @@ public class GameController : MonoBehaviour
             }
         }
         return null;
-        foreach (PoolObject item in poolItems)
-        {
-            if (item.prefab.tag == tagname)
-            {
-                GameObject temp = Instantiate(item.prefab);
-                temp.SetActive(false);
-                pool.Add(temp);
-                return temp;
-            }
-        }
+       
     }
 
-    /*  public void DecreaseHealth()
-      {
-          health--;
-          healthtext.GetComponent<Text>().text = health.ToString();
-          Debug.Log("DecreasedHealth" + health);
-          if (health <= 0)
-          {
-              Debug.Log("Game Over");
-          }
-      }
-
-      public void IncreaseHealth()
-      {
-          if (health < maxhealth)
-          {
-              health++;
-              healthtext.GetComponent<Text>().text = health.ToString();
-              Debug.Log("IncreasedHealth" + health);
-          }
-      }
-  }*/
+   
+   
 }
     [System.Serializable]
     public class PoolObject
