@@ -77,6 +77,7 @@ public class FiniteStateMachine : MonoBehaviour
     {
         // anim.SetBool("Run", false);
         anim.SetBool("Attack", true);
+        anim.SetBool("Death", false);
         if (Vector3.Distance(target.position, this.transform.position) >= 10f)
         {
             state = STATE.MOVE;
@@ -92,6 +93,7 @@ public class FiniteStateMachine : MonoBehaviour
     {
         anim.SetBool("Attack", false);
         anim.SetBool("Death", true);
+        Debug.Log("Dead");
     }
     public void Win()
     {
